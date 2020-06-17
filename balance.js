@@ -1,12 +1,6 @@
 
-var username= JSON.parse(localStorage.getItem('current_user')).user
+var username = JSON.parse(localStorage.getItem('current_user')).user
 console.log(username)
-
-var user_detail = JSON.parse(localStorage.getItem(username)) || [[],[]]
-
-
-
-
 
 var btn1 = document.getElementById('btn1')
 btn1.addEventListener('click',income)
@@ -16,6 +10,9 @@ btn2.addEventListener('click',expenditure)
 
 function income(){
     event.preventDefault()
+
+    var user_detail = JSON.parse(localStorage.getItem(username)) || [[],[]]
+
     var income_src =document.getElementById('income_src')
     var income_amt = document.getElementById('income_amt')
 
@@ -35,12 +32,17 @@ function income(){
     obj['income_src']=income_src.value
     obj['income_amt']=income_amt.value
 
-    localStorage.setItem('')
+    user_detail[0].push(obj)
+
+    localStorage.setItem(username,JSON.stringify(user_detail))
 
 }
 
 function expenditure(){
     event.preventDefault()
+    
+    var user_detail = JSON.parse(localStorage.getItem(username)) || [[],[]]
+
     var expend_src =document.getElementById('expend_src')
     var expend_amt = document.getElementById('expend_amt')
 
@@ -55,4 +57,12 @@ function expenditure(){
 
     div_expend_src.append(src)
     div_expend_amt.append(amt)
+
+    var obj={}
+    obj['expend_src']=expend_src.value
+    obj['expend_amt']=expend_amt.value
+
+    user_detail[1].push(obj)
+
+    localStorage.setItem(username,JSON.stringify(user_detail))
 }
