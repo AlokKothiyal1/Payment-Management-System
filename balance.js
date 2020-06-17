@@ -1,7 +1,55 @@
 
+//Dynamically creates page to its previous state when user relogins-----------------------------------
+
 var username = JSON.parse(localStorage.getItem('current_user')).user
 console.log(username)
 
+var balance_val = document.getElementById('balance_value')
+
+var div_income_src = document.getElementById('income_src_block')
+var div_income_amt = document.getElementById('income_amt_block')
+
+var div_expend_src = document.getElementById('expend_src_block')
+var div_expend_amt = document.getElementById('expend_amt_block')
+
+
+var user_info = JSON.parse(localStorage.getItem(username)) || [[],[]]
+
+var total_income=0
+var total_expenditure=0
+
+for(var i=0;i<user_info[0].length;i++){
+
+    var inc_src = document.createElement('h3')
+    inc_src.textContent = user_info[0][i].income_src
+    div_income_src.append(inc_src)
+
+    var inc_amt =document.createElement('h3')
+    inc_amt.textContent = user_info[0][i].income_amt
+    div_income_amt.append(inc_amt)
+   
+    total_income += Number(user_info[0][i].income_amt)
+}
+
+for(var i=0;i<user_info[1].length;i++){
+
+    var exp_src = document.createElement('h3')
+    exp_src.textContent = user_info[1][i].expend_src
+    div_expend_src.append(exp_src)
+
+    var exp_amt = document.createElement('h3')
+    exp_amt.textContent = user_info[1][i].expend_amt
+    div_expend_amt.append(exp_amt)
+
+    total_expenditure += Number(user_info[1][i].expend_amt)
+}
+
+balance_val.textContent = "$ "+(total_income -total_expenditure)
+
+
+
+
+//ADD button functionality for income & Expenditure
 var btn1 = document.getElementById('btn1')
 btn1.addEventListener('click',income)
 
@@ -9,15 +57,12 @@ var btn2 = document.getElementById('btn2')
 btn2.addEventListener('click',expenditure)
 
 function income(){
+
     event.preventDefault()
 
     var user_detail = JSON.parse(localStorage.getItem(username)) || [[],[]]
-
     var income_src =document.getElementById('income_src')
     var income_amt = document.getElementById('income_amt')
-
-    var div_income_src = document.getElementById('income_src_block')
-    var div_income_amt = document.getElementById('income_amt_block')
 
     var src = document.createElement('h3')
     var amt  = document.createElement('h3')
@@ -40,14 +85,13 @@ function income(){
 
 function expenditure(){
     event.preventDefault()
-    
+
     var user_detail = JSON.parse(localStorage.getItem(username)) || [[],[]]
 
     var expend_src =document.getElementById('expend_src')
     var expend_amt = document.getElementById('expend_amt')
 
-    var div_expend_src = document.getElementById('expend_src_block')
-    var div_expend_amt = document.getElementById('expend_amt_block')
+    
 
     var src = document.createElement('h3')
     var amt  = document.createElement('h3')
