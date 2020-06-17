@@ -1,3 +1,6 @@
+var logout = document.getElementById('btn3')
+logout.addEventListener('click',function(){window.location.href="sign_up.html"})
+
 
 //Dynamically creates page to its previous state when user relogins-----------------------------------
 
@@ -5,6 +8,9 @@ var username = JSON.parse(localStorage.getItem('current_user')).user
 console.log(username)
 
 var balance_val = document.getElementById('balance_value')
+
+var total_in = document.getElementById('total_in')
+var total_exp =document.getElementById('total_exp')
 
 var div_income_src = document.getElementById('income_src_block')
 var div_income_amt = document.getElementById('income_amt_block')
@@ -45,7 +51,8 @@ for(var i=0;i<user_info[1].length;i++){
 }
 
 balance_val.textContent = "$ "+(total_income -total_expenditure)
-
+total_in.textContent="$ "+total_income
+total_exp.textContent="$ "+total_expenditure
 
 
 
@@ -63,6 +70,7 @@ function income(){
     var user_detail = JSON.parse(localStorage.getItem(username)) || [[],[]]
     var income_src =document.getElementById('income_src')
     var income_amt = document.getElementById('income_amt')
+    
 
     var src = document.createElement('h3')
     var amt  = document.createElement('h3')
@@ -78,9 +86,11 @@ function income(){
     obj['income_amt']=income_amt.value
 
     user_detail[0].push(obj)
-
     localStorage.setItem(username,JSON.stringify(user_detail))
 
+    total_income+=Number(income_amt.value)
+    balance_val.textContent = "$ "+(total_income -total_expenditure)
+    total_in.textContent="$ "+total_income
 }
 
 function expenditure(){
@@ -90,6 +100,7 @@ function expenditure(){
 
     var expend_src =document.getElementById('expend_src')
     var expend_amt = document.getElementById('expend_amt')
+    
 
     
 
@@ -109,4 +120,8 @@ function expenditure(){
     user_detail[1].push(obj)
 
     localStorage.setItem(username,JSON.stringify(user_detail))
+
+    total_expenditure+=Number(expend_amt.value)
+    balance_val.textContent = "$ "+(total_income -total_expenditure)
+    total_exp.textContent="$ "+total_expenditure
 }
