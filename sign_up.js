@@ -1,6 +1,9 @@
 var btn_1 =document.getElementById('btn1')
 btn_1.addEventListener('click',validate_user)
 
+var btn_2 =document.getElementById('btn2')
+btn_2.addEventListener('click',toggle)
+
 var btn =document.getElementById('btn')
 btn.addEventListener('click',add_user)
 
@@ -21,6 +24,9 @@ function add_user(){
     
     details.push(obj)
     localStorage.setItem('user_details',JSON.stringify(details))
+
+    var bottom = document.getElementById('bottom')
+    bottom.setAttribute('class','d-none')
 
 }
 
@@ -44,4 +50,10 @@ function validate_user(){
            }
        }
     }
+}
+
+function toggle(){
+    event.preventDefault()
+    var bottom = document.getElementById('bottom')
+    bottom.setAttribute('class','d-block')
 }

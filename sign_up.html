@@ -3,34 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up Page</title>
+    <title>Payment Manager</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 
 <body>
+    <div class="container text-center my-4">
+        <div class="signin my-4" id="top">
 
-    <div class="signin">
+            <h1 class="display-1 mb-5 bg-secondary text-white p-4 rounded-lg"><i class="fas fa-file-invoice-dollar"></i> Expanse Manager</h1>
+            <div class="row mb-5">
+                <div class="col-12">
+                    <h1 class="text-center mb-4">Sign In</h1>
+                </div>
+                <div class="col-12 offset-0 col-md-6 offset-md-3">
 
-        <h1>Expanse Manager</h1>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text border border-dark"><i class="fas fa-user-tie"></i></div>
+                        </div>
+                        <input type="text" class="form-control border border-dark" id="uname" placeholder="Username">
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text border border-dark"><i class="fas fa-key"></i></div>
+                        </div>
+                        <input type="password" class="form-control border border-dark" id="pwd" placeholder="Password">
+                    </div>
+                <br>
+                </div>
+                <div class="col-12">
+                    <a href="" class="btn btn-dark btn-lg" id="btn1">LOGIN</a>
+                    <a href="" class="btn btn-outline-dark btn-lg" id="btn2">New user?</a>
+                </div>
+            </div>
+    
+        </div>
+    
+        <div class="signup d-none" id="bottom">
+    
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="text-center mb-4">Sign Up</h1>
+                </div>
+                <div class="col-12 offset-0 col-md-6 offset-md-3">
 
-        <label for="uname">Username</label>
-        <input type="text" name="uname" id="uname">
-        <label for="pwd">Password</label>
-        <input type="password" name="pwd" id="pwd">
-        <a href="" id="btn1">Sign In</a>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text border border-dark"><i class="fas fa-user-tie"></i></div>
+                        </div>
+                        <input type="text" class="form-control border border-dark" id="username" placeholder="Set Username">
+                    </div>
 
-    </div>
-
-    <div class="signup">
-
-        <h1>Sign Up</h1>
-        <label for="username">Username</label>
-        <input type="text" name="username" id="username">
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password">
-        <a href="" id="btn">Sign Up</a>
-
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text border border-dark"><i class="fas fa-key"></i></div>
+                        </div>
+                        <input type="password" class="form-control border border-dark" id="password" placeholder="Set Password">
+                    </div>
+                </div>
+                <br>
+                <div class="col-12">
+                    <a href="" class="btn btn-dark btn-lg" id="btn">Sign up</a>
+                </div>
+            </div>
+       
+    
+        </div>
     </div>
     
+<script src="https://kit.fontawesome.com/61d65dba0f.js" crossorigin="anonymous"></script>   
 <script src="sign_up.js"></script>
 </body>
 </html>
