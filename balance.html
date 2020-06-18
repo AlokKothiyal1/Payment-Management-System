@@ -18,26 +18,30 @@
         <!-------------------------------mid partition----------------->
         <div class="list">
             <div class="row">
-                <div class="col-6">
+                <div class="col-12 col-md-6">
                     <div class="bg-light p-4 rounded-lg m-1">
                         <h1 class="text-primary">Income</h1> 
                         <div class="row">
-                            <div class="col-6" id="income_src_block">
+                            <div class="col-5" id="income_src_block">
                             </div>
-                            <div class="col-6" id="income_amt_block">
+                            <div class="col-4" id="income_amt_block">
+                            </div>
+                            <div class="col-3" id="del_inc">
                             </div>
                         </div>    
                     </div>
                    
                 </div>
 
-                <div class="col-6">
+                <div class="col-12 col-md-6">
                     <div class="bg-light p-4 rounded-lg m-1">
                         <h1 class="text-danger">Expenditure</h1>
                         <div class="row">
-                            <div class="col-6" id="expend_src_block">
+                            <div class="col-5" id="expend_src_block">
                             </div>
-                            <div class="col-6" id="expend_amt_block">
+                            <div class="col-4" id="expend_amt_block">
+                            </div>
+                            <div class="col-3" id="del_exp">
                             </div>
                         </div>    
                     </div>
@@ -54,7 +58,9 @@
         </div>
         <br>
         <br>
+
         <div class="user_transaction">
+
             <!--tabs---income/expenditure-->
             <ul class="nav nav-pills nav-fill mb-3" id="pills-tab" role="tablist">
     
@@ -82,7 +88,7 @@
                     </div>
                     <div class="row">
                         <div class="col-6 offset-3">
-                            <button class="btn btn-success btn-block" id="btn1">ADD</button>
+                            <button class="btn btn-success btn-block p-3" id="btn1">ADD</button>
                         </div>
                        
                     </div>
@@ -102,7 +108,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-6 offset-3">
-                                    <button class="btn btn-danger btn-block" id="btn2">ADD</button>
+                                    <button class="btn btn-danger btn-block p-3" id="btn2">ADD</button>
                                 </div>
                             </div>
                         </form>

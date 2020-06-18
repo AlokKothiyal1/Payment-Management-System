@@ -15,6 +15,11 @@ var total_exp =document.getElementById('total_exp')
 var div_income_src = document.getElementById('income_src_block')
 var div_income_amt = document.getElementById('income_amt_block')
 
+var del_inc = document.getElementById('del_inc')
+del_inc.addEventListener('click',delete_info)
+var del_exp = document.getElementById('del_exp')
+del_exp.addEventListener('click',delete_exp)
+
 var div_expend_src = document.getElementById('expend_src_block')
 var div_expend_amt = document.getElementById('expend_amt_block')
 
@@ -63,6 +68,8 @@ btn1.addEventListener('click',income)
 var btn2 = document.getElementById('btn2')
 btn2.addEventListener('click',expenditure)
 
+
+//income function...........................
 function income(){
 
     event.preventDefault()
@@ -74,12 +81,21 @@ function income(){
 
     var src = document.createElement('h3')
     var amt  = document.createElement('h3')
+    
+    var del_btn =document.createElement('button')
+    del_btn.setAttribute('class','btn btn-sm btn-outline-danger btn-block m-1')
+
+   
 
     src.textContent =income_src.value
     amt.textContent =income_amt.value
+    del_btn.textContent="Delete"
+    //del.innerHTML = "<i class="fas fa-trash-alt"></i>"
 
     div_income_src.append(src)
     div_income_amt.append(amt)
+    del_inc.append(del_btn)
+    
 
     var obj={}
     obj['income_src']=income_src.value
@@ -93,6 +109,8 @@ function income(){
     total_in.textContent="$ "+total_income
 }
 
+//expenxditure function..............................
+
 function expenditure(){
     event.preventDefault()
 
@@ -101,7 +119,8 @@ function expenditure(){
     var expend_src =document.getElementById('expend_src')
     var expend_amt = document.getElementById('expend_amt')
     
-
+    var del_btn =document.createElement('button')
+    del_btn.setAttribute('class','btn btn-sm btn-outline-success btn-block m-1')
     
 
     var src = document.createElement('h3')
@@ -109,9 +128,11 @@ function expenditure(){
     
     src.textContent =expend_src.value
     amt.textContent =expend_amt.value
+    del_btn.textContent="Delete"
 
     div_expend_src.append(src)
     div_expend_amt.append(amt)
+    del_exp.append(del_btn)
 
     var obj={}
     obj['expend_src']=expend_src.value
@@ -124,4 +145,11 @@ function expenditure(){
     total_expenditure+=Number(expend_amt.value)
     balance_val.textContent = "$ "+(total_income -total_expenditure)
     total_exp.textContent="$ "+total_expenditure
+}
+
+function delete_info(){
+    console.log("hey")
+}
+function delete_exp(){
+    console.log("hey")
 }
