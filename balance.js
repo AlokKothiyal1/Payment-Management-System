@@ -6,6 +6,8 @@ logout.addEventListener('click',function(){window.location.href="sign_up.html"})
 
 var username = JSON.parse(localStorage.getItem('current_user')).user
 console.log(username)
+var display_name = document.getElementById('display_name')
+display_name.textContent="Hi, "+username
 
 var balance_val = document.getElementById('balance_value')
 
@@ -38,7 +40,12 @@ for(var i=0;i<user_info[0].length;i++){
     var inc_amt =document.createElement('h3')
     inc_amt.textContent = user_info[0][i].income_amt
     div_income_amt.append(inc_amt)
-   
+
+    var del_btn_inc =document.createElement('button')
+    del_btn_inc.setAttribute('class','btn btn-sm btn-outline-danger btn-block m-1')
+    del_btn_inc.textContent="Delete"
+    del_inc.append(del_btn_inc)
+
     total_income += Number(user_info[0][i].income_amt)
 }
 
@@ -51,6 +58,11 @@ for(var i=0;i<user_info[1].length;i++){
     var exp_amt = document.createElement('h3')
     exp_amt.textContent = user_info[1][i].expend_amt
     div_expend_amt.append(exp_amt)
+
+    var del_btn_exp =document.createElement('button')
+    del_btn_exp.setAttribute('class','btn btn-sm btn-outline-success btn-block m-1')
+    del_btn_exp.textContent="Delete"
+    del_exp.append(del_btn_exp)
 
     total_expenditure += Number(user_info[1][i].expend_amt)
 }
@@ -90,7 +102,7 @@ function income(){
     src.textContent =income_src.value
     amt.textContent =income_amt.value
     del_btn.textContent="Delete"
-    //del.innerHTML = "<i class="fas fa-trash-alt"></i>"
+
 
     div_income_src.append(src)
     div_income_amt.append(amt)
@@ -147,6 +159,8 @@ function expenditure(){
     total_exp.textContent="$ "+total_expenditure
 }
 
+
+//delete functionality income/expenditure
 function delete_info(){
     console.log("hey")
 }
